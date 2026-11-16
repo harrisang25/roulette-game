@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roulette</title>
+  <meta name="description" content="A European roulette game that runs in your browser. Play money only.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23b8202c'/><circle cx='50' cy='50' r='30' fill='%23111'/><circle cx='50' cy='50' r='10' fill='%23e6c46a'/></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Roulette</h1>
+    <p class="sub">European single-zero wheel · play money only</p>
+  </header>
+
+  <main>
+    <section class="wheel-area">
+      <canvas id="wheel" width="440" height="440" aria-label="Roulette wheel"></canvas>
+      <div id="result" class="result" aria-live="polite">Place your bets</div>
+      <div class="history-wrap">
+        <span class="label">Last results</span>
+        <ol id="history" class="history"></ol>
+      </div>
+    </section>
+
+    <section class="play-area">
+      <div class="stats">
+        <div><span class="label">Balance</span><strong id="balance">1000</strong></div>
+        <div><span class="label">Total bet</span><strong id="totalBet">0</strong></div>
+        <div><span class="label">Last win</span><strong id="lastWin">0</strong></div>
+      </div>
+
+      <div id="table" class="table" role="grid" aria-label="Betting table"></div>
+
+      <div class="chips" role="radiogroup" aria-label="Chip value">
+        <span class="label">Chip</span>
+        <button class="chip" data-value="1" role="radio">1</button>
+        <button class="chip" data-value="5" role="radio">5</button>
+        <button class="chip" data-value="25" role="radio">25</button>
+        <button class="chip" data-value="100" role="radio">100</button>
+        <button class="chip" data-value="500" role="radio">500</button>
+      </div>
+
+      <div class="actions">
+        <button id="undo" class="btn">Undo</button>
+        <button id="clear" class="btn">Clear</button>
+        <button id="rebet" class="btn">Rebet</button>
+        <button id="spin" class="btn primary">Spin</button>
+      </div>
+
+      <p class="help">Click a space to place the selected chip. Right-click (or long-press) a space to remove a chip.
+        Payouts: straight number 35:1 · dozen/column 2:1 · red/black, odd/even, 1–18/19–36 1:1.
+        <button id="reset" class="link">Reset balance</button></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
